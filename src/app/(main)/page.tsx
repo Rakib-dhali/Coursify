@@ -3,13 +3,11 @@ import PopularCourses from "@/components/PopularCourses";
 import LearningTips from "@/components/Tips";
 import TopInstructors from "@/components/TopInstructor";
 
-export default async function HomePage() {
-  const res = await fetch("https://skillsphere-rakib.vercel.app/data.json")
-  const courses = await res.json()
+export default function HomePage() {
   return (
     <>
      <Banner/>
-     <PopularCourses courses={courses}/>
+     <PopularCourses/>
      <LearningTips/>
      <TopInstructors/>
     </>

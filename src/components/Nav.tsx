@@ -29,7 +29,7 @@ export default function Nav() {
     `text-lg font-semibold ${
       pathname === path
         ? "text-blue-600 opacity-100"
-        : "text-neutral-500 opacity-60 hover:opacity-100"
+        : "text-blue-300 opacity-80 hover:opacity-100"
     }`;
 
   return (
@@ -45,7 +45,7 @@ export default function Nav() {
         <div className="flex items-center">
           <Link href="/" className="flex items-center">
             <Image src="/assets/logo.png" alt="logo" width={40} height={40} />
-            <span className="ml-2 font-bold text-2xl text-blue-400 font-mono">
+            <span className="ml-2 hidden md:block font-bold text-2xl text-blue-400 font-mono">
               SkillSphere
             </span>
           </Link>
@@ -86,7 +86,7 @@ export default function Nav() {
           {/* Mobile dropdown */}
           {menuOpen && (
             <div className="md:hidden absolute left-1/2 -translate-x-1/2 top-full  mt-2  rounded-lg bg-blue-100 border border-blue-400  shadow-lg py-1 z-50 ">
-              <div className="flex items-center justify-center gap-5 w-full ">
+              <div className="flex items-center justify-center gap-3 w-full ">
                 {" "}
                 <Link
                   href="/"

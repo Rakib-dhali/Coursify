@@ -1,12 +1,10 @@
-"use client";
-
 import Image from "next/image";
 import { Course } from "@/type";
-import { useRouter } from "next/navigation";
+import DetailsButton from "./DetailsBtn";
+import { getCourses } from "@/lib/getCourses";
 
-export default function PopularCourses({ courses }: { courses: Course[] }) {
-    const router = useRouter();
-
+export default async function PopularCourses() {
+    const courses = await getCourses();
     const topCourses = courses.filter((course: Course) => course.rating > 4.5).slice(0, 3);
   return (
     <section className="px-6 md:px-12 py-12 w-full max-w-369 mx-auto bg-white">
@@ -46,8 +44,7 @@ export default function PopularCourses({ courses }: { courses: Course[] }) {
                 <span className="font-medium text-xl ">🧑‍💻 {course.instructor}</span>
                 <span>⭐ {course.rating}</span>
               </div>
-              <button onClick={() => router.push(`/course/${course.id}`)} className="w-full cursor-pointer bg-blue-200 border-blue-300 py-2 rounded-lg hover:bg-blue-300 font-semibold transition">View Details
-              </button>
+              <DetailsButton id={course.id}/>
             </div>
           </div>
         ))}
