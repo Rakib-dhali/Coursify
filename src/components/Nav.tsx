@@ -67,7 +67,7 @@ export default function Nav() {
 
           {/* Mobile hamburger button */}
           <button
-            className="md:hidden flex flex-col justify-center items-center gap-1.5 w-8 h-8"
+            className="md:hidden flex flex-col justify-center items-center gap-1.5 w-8 h-8 cursor-pointer"
             onClick={() => setMenuOpen((prev) => !prev)}
             aria-label="Toggle menu"
             aria-expanded={menuOpen}
@@ -104,7 +104,7 @@ export default function Nav() {
                 </Link>
                 <Link
                   href="/my-profile"
-                  className={`block px-4 py-2 text-sm ${activeClass("/my-profile")}`}
+                  className={`block px-4 py-2 text-sm text-nowrap ${activeClass("/my-profile")}`}
                   onClick={() => setMenuOpen(false)}
                 >
                   My Profile

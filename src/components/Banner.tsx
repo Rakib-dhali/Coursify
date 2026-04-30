@@ -16,15 +16,15 @@ const Banner = () => {
           Browse All Courses
         </button>
       </div>
-      <div className="md:hidden flex flex-col gap-5">
-        <h1 className="font-bold text-3xl p-10 l text-blue-950 flex items-center text-center ">
+      <div className="md:hidden flex flex-col gap-5 mt-5 md:mt-10 lg:mt-20 max-w-369 w-full ">
+        <h1 className="font-bold text-3xl px-10 l text-blue-950 text-center ">
           Level Up Your Skills with skillSphere
         </h1>
         <p className="text-center text-gray-500 text-xl">
           Learn in-demand skills through interactive courses, real-world
           projects, and expert guidance—all in one place.
         </p>
-        <button className="font-medium cursor-pointer hover:bg-blue-200 text-xl border border-blue-600 rounded-full px-5 py-3 bg-blue-100 ">
+        <button className="font-medium max-w-55 mx-auto text-nowrap cursor-pointer hover:bg-blue-200 text-xl border border-blue-600 rounded-full px-5 py-3 bg-blue-100 ">
           Browse All Courses
         </button>
       </div>
