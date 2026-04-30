@@ -1,6 +1,6 @@
 export default function LearningTips() {
   return (
-    <section className="px-6 md:px-12 py-16 bg-gray-50">
+    <section className="px-6 md:px-12 py-16 mx-auto w-full max-w-369">
       {/* Header */}
       <div className="text-center mb-12">
         <h2 className="text-3xl font-bold text-gray-800">
