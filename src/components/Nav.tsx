@@ -34,7 +34,7 @@ export default function Nav() {
 
   return (
     <motion.header
-      className="fixed top-0 left-0 right-0 z-100 backdrop-blur-md"
+      className="fixed top-0 left-0 right-0 z-100 bg-blue-100/20 backdrop-blur-md"
       animate={{
         y: hidden ? -140 : 0,
         opacity: hidden ? 0 : 1,
