@@ -10,7 +10,7 @@ const CoursePage = async () => {
       {/* Header */}
       <div className="flex items-center mb-8">
         <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
-          Most Popular Courses
+         All Courses
         </h2>
       </div>
 

@@ -10,3 +10,34 @@ export type Course = {
   image: string;
   category: string;
 };
+
+
+type LessonType = "video" | "project";
+type BadgeLevel = "Beginner" | "Intermediate" | "Advanced";
+
+export interface Lesson {
+  icon: string;
+  name: string;
+  dur: string;
+  type: LessonType;
+}
+
+export interface Accent {
+  num: string;
+  badge: string;
+  border: string;
+}
+
+export interface Module {
+  id: string;
+  title: string;
+  subtitle: string;
+  badge: BadgeLevel;
+  accent: Accent;
+  lessons: Lesson[];
+}
+
+export interface StatItem {
+  label: string;
+  value: string;
+}
