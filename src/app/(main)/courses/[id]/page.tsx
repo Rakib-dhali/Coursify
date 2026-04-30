@@ -37,7 +37,7 @@ const CourseDetailsPage = async ({
           src={image}
           alt={title}
         />
-        <div className="lg:col-span-2 flex flex-col gap-6 pt-5">
+        <div className="lg:col-span-2 flex flex-col gap-6">
           <h2 className="text-blue-900 font-bold text-3xl">{title}</h2>
           <p className="text-gray-500">{description}</p>
           <div className="flex items-center flex-wrap">
