@@ -1,8 +1,9 @@
-import Image from "next/image";
+import Banner from "@/components/Banner";
 
-export default function page() {
+export default function HomePage() {
   return (
-    <div className="bg-red-300 text-4xl ">home page
-    </div>
+    <>
+     <Banner/>
+    </>
   );
 }
