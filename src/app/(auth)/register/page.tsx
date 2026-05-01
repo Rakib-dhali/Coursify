@@ -1,7 +1,6 @@
 "use client";
 
 import { authClient } from "@/lib/auth-client";
-import { set } from "better-auth";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -35,9 +34,15 @@ export default function RegisterForm() {
     } finally {
       setLoading(false);
     }
-
-    
-    
+  };
+  const googleSignIn = async () => {
+    const { error } = await authClient.signIn.social({
+      provider: "google",
+    });
+    if (error) {
+      toast.error(error.message!);
+      return;
+    }
   };
 
   return (
@@ -140,7 +145,10 @@ export default function RegisterForm() {
             </Link>
           </div>
           <div>
-            <button className="w-full flex items-center justify-center gap-2.5 mt-3 py-2 px-3.5 text-sm rounded-md font-semibold text-slate-900 border border-slate-300 bg-white hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
+            <button
+              onClick={googleSignIn}
+              className="w-full flex items-center justify-center gap-2.5 mt-3 py-2 px-3.5 text-sm rounded-md font-semibold text-slate-900 border border-slate-300 bg-white hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="size-4.5"

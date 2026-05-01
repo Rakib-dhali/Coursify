@@ -20,16 +20,28 @@ export default function LoginForm() {
         email,
         password,
       });
-      console.log(data, error);
       if (error) {
         toast.error(error.message || "invalid credentials");
         return;
       }
-      toast.success("login successful");
+      toast.success(`welcome back! ${data.user.name}`);
       router.push("/");
     } finally {
       setLoading(false);
     }
+  };
+  const googleSignIn = async () => {
+    const { error } = await authClient.signIn.social({
+      provider: "google",
+      callbackURL: "/",
+    });
+
+    if (error) {
+      toast.error(error.message!);
+      return;
+    }
+
+    toast.success("login successful");
   };
 
   return (
@@ -101,7 +113,10 @@ export default function LoginForm() {
             <hr className="w-full border-slate-300 dark:border-neutral-700" />
           </div>
           <div>
-            <button className="w-full flex items-center justify-center gap-2.5 mt-3 py-2 px-3.5 text-sm rounded-md font-semibold text-slate-900 border border-slate-300 bg-white hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
+            <button
+              onClick={googleSignIn}
+              className="w-full flex items-center justify-center gap-2.5 mt-3 py-2 px-3.5 text-sm rounded-md font-semibold text-slate-900 border border-slate-300 bg-white hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="size-4.5"
