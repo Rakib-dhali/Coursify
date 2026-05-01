@@ -2,21 +2,35 @@
 
 import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 export default function LoginForm() {
-   const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
-  
-      const {data, error} = await authClient.signIn.email({
-          email,
-          password,
-          callbackURL: "/"
-      })
-    };
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const { data, error } = await authClient.signIn.email({
+        email,
+        password,
+      });
+      console.log(data, error);
+      if (error) {
+        toast.error(error.message || "invalid credentials");
+        return;
+      }
+      toast.success("login successful");
+      router.push("/");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <main className="px-4 md:px-8 min-h-screen flex flex-col items-center justify-center">
@@ -63,10 +77,11 @@ export default function LoginForm() {
               />
             </div>
             <button
+              disabled={loading}
               type="submit"
-              className="w-full py-2 px-3.5 text-sm rounded-md font-semibold cursor-pointer tracking-wide text-white border border-blue-600 bg-blue-600 hover:bg-blue-700 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+              className="w-full disabled:cursor-not-allowed py-2 px-3.5 text-sm rounded-md font-semibold cursor-pointer tracking-wide text-white border border-blue-600 bg-blue-600 hover:bg-blue-700 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
             >
-              Login
+              {loading ? "Logging in..." : "Login"}
             </button>
           </form>
 
@@ -74,7 +89,7 @@ export default function LoginForm() {
             Don not have an account?
             <Link
               href="/register"
-              className="text-blue-700 hover:underline ml-1 font-medium dark:text-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
+              className="text-blue-700 hover:underline ml-1 font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
             >
               Register Now
             </Link>
@@ -84,7 +99,7 @@ export default function LoginForm() {
             <hr className="w-full border-slate-300 dark:border-neutral-700" />
             <p className="text-lg font-bold text-blue-700 text-center">or</p>
             <hr className="w-full border-slate-300 dark:border-neutral-700" />
-         </div>
+          </div>
           <div>
             <button className="w-full flex items-center justify-center gap-2.5 mt-3 py-2 px-3.5 text-sm rounded-md font-semibold text-slate-900 border border-slate-300 bg-white hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
               <svg
