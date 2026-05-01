@@ -6,10 +6,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
+import { authClient } from "@/lib/auth-client";
+import toast from "react-hot-toast";
 
 export default function Nav() {
   const pathname = usePathname();
   const router = useRouter();
+  const {data: session} = authClient.useSession();
+  const isLoggedIn = !!session?.user;
+
+   const handleLogout = async () => {
+    await authClient.signOut();
+    toast.success("logged out");
+    router.push("/");
+  };
 
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState<boolean>(false);
@@ -113,8 +123,23 @@ export default function Nav() {
             </div>
           )}
         </nav>
-
-        <div className="flex gap-4">
+          {
+            isLoggedIn && <div className="flex gap-4">
+          <button
+          className="flex items-center justify-center"
+          >
+           <img className="rounded-full border border-blue-400 "  src={session?.user?.image ?? "https://ik.imagekit.io/rakib343/user-male-circle--v1.png"} alt={session.user.name} width={40} height={40} referrerPolicy="no-referrer"/>
+          </button>
+          <button
+            onClick={handleLogout}
+            className="bg-blue-200 text-blue-600 border border-blue-600 px-4 py-2 rounded-md hover:bg-blue-300 transition duration-100"
+          >
+            Logout
+          </button>
+        </div>
+          }
+          {
+            !isLoggedIn && <div className="flex gap-4">
           <button
             onClick={() => router.push("/register")}
             className="bg-blue-200 text-blue-600 border border-blue-600 px-4 py-2 rounded-md hover:bg-blue-300 transition duration-100"
@@ -128,6 +153,8 @@ export default function Nav() {
             Login
           </button>
         </div>
+          }
+        
       </div>
     </motion.header>
   );
