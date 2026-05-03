@@ -9,6 +9,27 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  const courses = await getCourses();
+  const course = courses.find((c: Course) => c.id === Number(id));
+
+  return {
+    title: course?.title ?? "Course Not Found",
+    description: course?.description,
+    openGraph: {
+      title: course?.title,
+      description: course?.description,
+      images: [course?.image],
+    },
+  };
+}
+
 const CourseDetailsPage = async ({
   params,
 }: {
@@ -25,6 +46,7 @@ const CourseDetailsPage = async ({
     ratingCount,
     duration,
     rating,
+    category,
     image,
   } = courseById;
   return (
@@ -40,6 +62,7 @@ const CourseDetailsPage = async ({
         <div className="lg:col-span-2 flex flex-col gap-6">
           <h2 className="text-blue-900 font-bold text-3xl">{title}</h2>
           <p className="text-gray-500">{description}</p>
+          <span className="bg-blue-200 p-2 w-30 rounded-full text-center ">{category}</span>
           <div className="flex items-center flex-wrap">
             <span className="flex mb-3 items-center gap-2 pr-5 border-r-2 border-gray-400  ">
               <ChartNoAxesColumn /> {level}

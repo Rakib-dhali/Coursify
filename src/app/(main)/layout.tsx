@@ -1,4 +1,10 @@
 import Nav from "@/components/Nav";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "CoursiFy",
+  description: "Master new skills online",
+}
 
 export default function MainLayout({
   children,

@@ -39,8 +39,8 @@ export default function Nav() {
   const activeClass = (path: string) =>
     `text-lg font-semibold ${
       pathname === path
-        ? "text-blue-600 opacity-100"
-        : "text-blue-300 opacity-80 hover:opacity-100"
+        ? "text-blue-900 opacity-100"
+        : "text-blue-900 opacity-50 hover:opacity-80"
     }`;
 
   return (

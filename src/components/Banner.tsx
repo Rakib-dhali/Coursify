@@ -28,7 +28,7 @@ import { redirect } from "next/navigation";
               </svg>
             </button>
             <button onClick={() => redirect("https://www.youtube.com/", )} className="flex items-center gap-2 border border-gray-200 hover:border-red-400 hover:bg-red-50 text-gray-800 font-medium px-6 py-3 rounded-full transition-all">
-              <span className="w-5 h-5 bg-red-600 rounded flex items-center justify-center flex-shrink-0">
+              <span className="w-5 h-5 bg-red-600 rounded flex items-center justify-center shrink-0">
                 <svg className="w-2.5 h-2.5" viewBox="0 0 10 10" fill="white">
                   <path d="M3 2l5 3-5 3V2z" />
                 </svg>
@@ -43,7 +43,7 @@ import { redirect } from "next/navigation";
               { emoji: "⭐", value: "4.9",  label: "Rating"   },
             ].map(({ emoji, value, label }) => (
               <div key={label} className="flex items-center gap-2.5">
-                <div className="w-9 h-9 rounded-xl bg-blue-50 flex items-center justify-center text-base flex-shrink-0">
+                <div className="w-9 h-9 rounded-xl bg-blue-50 flex items-center justify-center text-base shrink-0">
                   {emoji}
                 </div>
                 <div>
@@ -106,14 +106,14 @@ import { redirect } from "next/navigation";
               <rect x="0" y="0" width="640" height="480" fill="rgba(20,30,50,0.12)"/>
             </svg>
             <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-black/40" />
-            <button className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 bg-blue-500 rounded-full border-4 border-white/40 flex items-center justify-content-center hover:scale-110 transition-transform shadow-xl flex items-center justify-center">
+            <button className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 bg-blue-500 rounded-full border-4 border-white/40 justify-content-center hover:scale-110 transition-transform shadow-xl flex items-center justify-center">
               <svg className="w-5 h-5 text-white ml-0.5" viewBox="0 0 20 20" fill="currentColor">
                 <path d="M6.3 3.7a1 1 0 0 1 1.5-.1l7 6a1 1 0 0 1 0 1.5l-7 6A1 1 0 0 1 6 16.3V3.7z"/>
               </svg>
             </button>
           </div>
           <div className="absolute -bottom-4 left-4 z-10 flex items-center gap-2.5 bg-white rounded-2xl shadow-lg px-3.5 py-2.5">
-            <div className="w-8 h-8 bg-blue-50 rounded-xl flex items-center justify-center text-sm flex-shrink-0">
+            <div className="w-8 h-8 bg-blue-50 rounded-xl flex items-center justify-center text-sm shrink-0">
               📖
             </div>
             <div>
