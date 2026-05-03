@@ -16,7 +16,7 @@ import { redirect } from "next/navigation";
             <span className="text-blue-500">Online Anytime,</span> <br />
             Anywhere
           </h1>
-          <p className="text-gray-500 text-center text-base sm:text-lg leading-relaxed max-w-lg">
+          <p className="text-gray-500 text-center md:text-left text-base sm:text-lg leading-relaxed max-w-lg">
             Join over 50,000+ students learning from world-class mentors.
             Transform your career with industry-leading courses.
           </p>
