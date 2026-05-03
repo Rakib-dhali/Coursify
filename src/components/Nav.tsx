@@ -90,8 +90,6 @@ export default function Nav() {
               className={`block h-0.5 w-6 bg-blue-600 transition-transform duration-300 ${menuOpen ? "-translate-y-2 -rotate-45" : ""}`}
             />
           </button>
-
-          {/* Mobile dropdown */}
           {menuOpen && (
             <div className="md:hidden absolute left-1/2 -translate-x-1/2 top-full  mt-2  rounded-lg bg-blue-100 border border-blue-400  shadow-lg py-1 z-50 ">
               <div className="flex items-center justify-center gap-3 w-full ">
