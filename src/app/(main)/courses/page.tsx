@@ -28,7 +28,7 @@ const CoursePage = async ({
       <SearchInput/>
       {filtered.length === 0 && (
         <p className="text-gray-500 text-center py-10">
-          No courses found for &quot;{search}&quot;
+          No courses found for <span className="font-bold text-black"> &quot;{search}&quot;</span>
         </p>
       )}
 

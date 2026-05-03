@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
 import { Metadata } from "next";
 
@@ -16,5 +17,6 @@ export default function MainLayout({
     <div className="pt-15">
       {children}
     </div>
+    <Footer/>
   </>;
 }

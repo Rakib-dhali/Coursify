@@ -7,7 +7,6 @@ import google from "@/assets/google.png";
 import meta from "@/assets/meta.png";
 import netflix from "@/assets/netflix.png";
 import notion from "@/assets/notion.png";
-import shopify from "@/assets/shopify.png";
 import spotify from "@/assets/shopify.png";
 import stripe from "@/assets/stripe.png";
 
@@ -27,7 +26,6 @@ const MarqueeSection = () => {
         <Image className="mx-15" src={meta} alt="" width={70} height={70} />
         <Image className="mx-15" src={netflix} alt="" width={70} height={70} />
         <Image className="mx-15" src={notion} alt="" width={70} height={70} />
-        <Image className="mx-15" src={shopify} alt="" width={70} height={70} />
         <Image className="mx-15" src={spotify} alt="" width={70} height={70} />
         <Image className="mx-15" src={stripe} alt="" width={70} height={70} />
       </Marquee>
