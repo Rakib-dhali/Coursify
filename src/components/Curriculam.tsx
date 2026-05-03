@@ -143,7 +143,6 @@ const modules: Module[] = [
   },
 ];
 
-
 interface LessonRowProps {
   lesson: Lesson;
 }
@@ -228,8 +227,6 @@ function ModuleCard({ mod }: ModuleCardProps) {
     </div>
   );
 }
-
-// ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function CourseCurriculum() {
   return (

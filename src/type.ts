@@ -11,6 +11,15 @@ export type Course = {
   category: string;
 };
 
+export interface instructor {
+  id: number;
+  name: string;
+  subject: string;
+  rating: number;
+  ratingCount: number;
+  image: string;
+}
+
 
 type LessonType = "video" | "project";
 type BadgeLevel = "Beginner" | "Intermediate" | "Advanced";

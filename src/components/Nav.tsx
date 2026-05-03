@@ -13,10 +13,10 @@ import logo from "@/assets/logo.png";
 export default function Nav() {
   const pathname = usePathname();
   const router = useRouter();
-  const {data: session} = authClient.useSession();
+  const { data: session } = authClient.useSession();
   const isLoggedIn = !!session?.user;
 
-   const handleLogout = async () => {
+  const handleLogout = async () => {
     await authClient.signOut();
     toast.success("logged out");
     router.push("/");
@@ -55,16 +55,14 @@ export default function Nav() {
       <div className="max-w-369 mx-auto h-15 lg:h-20 flex items-center justify-between px-6  backdrop-blur-md">
         <div className="flex items-center">
           <Link href="/" className="flex items-center">
-            {/* <Image src="/assets/logo.png" alt="logo" width={40} height={40} /> */}
             <Image src={logo} alt="logo" width={40} height={40} />
             <span className="ml-2 hidden md:block font-bold text-2xl text-blue-950 ">
-              Coursi<span className="text-blue-500">fy</span>  
+              Coursi<span className="text-blue-500">fy</span>
             </span>
           </Link>
         </div>
 
         <nav className="relative flex items-center gap-3">
-          {/* Desktop links */}
           <div className="hidden md:flex items-center gap-3">
             <Link href="/" className={activeClass("/")}>
               Home
@@ -76,8 +74,6 @@ export default function Nav() {
               My Profile
             </Link>
           </div>
-
-          {/* Mobile hamburger button */}
           <button
             className="md:hidden flex flex-col justify-center items-center gap-1.5 w-8 h-8 cursor-pointer"
             onClick={() => setMenuOpen((prev) => !prev)}
@@ -125,38 +121,45 @@ export default function Nav() {
             </div>
           )}
         </nav>
-          {
-            isLoggedIn && <div className="flex gap-4">
-          <button
-          className="flex items-center justify-center"
-          >
-           <img className="rounded-full border border-blue-400 "  src={session?.user?.image ?? "https://ik.imagekit.io/rakib343/user-male-circle--v1.png"} alt={session.user.name} width={40} height={40} referrerPolicy="no-referrer"/>
-          </button>
-          <button
-            onClick={handleLogout}
-            className="bg-blue-200 text-blue-600 border border-blue-600 px-4 py-2 rounded-md hover:bg-blue-300 transition duration-100"
-          >
-            Logout
-          </button>
-        </div>
-          }
-          {
-            !isLoggedIn && <div className="flex gap-4">
-          <button
-            onClick={() => router.push("/register")}
-            className="bg-blue-200 text-blue-600 border border-blue-600 px-4 py-2 rounded-md hover:bg-blue-300 transition duration-100"
-          >
-            Register
-          </button>
-          <button
-            onClick={() => router.push("/login")}
-            className="bg-blue-200 text-blue-600 border border-blue-600 px-4 py-2 rounded-md hover:bg-blue-300 transition duration-100"
-          >
-            Login
-          </button>
-        </div>
-          }
-        
+        {isLoggedIn && (
+          <div className="flex gap-4">
+            <button className="flex items-center justify-center">
+              <Image
+                className="rounded-full border border-blue-400 "
+                src={
+                  session?.user?.image ??
+                  "https://ik.imagekit.io/rakib343/user-male-circle--v1.png"
+                }
+                alt={session.user.name}
+                width={40}
+                height={40}
+                referrerPolicy="no-referrer"
+              />
+            </button>
+            <button
+              onClick={handleLogout}
+              className="bg-blue-200 text-blue-600 border border-blue-600 px-4 py-2 rounded-md hover:bg-blue-300 transition duration-100"
+            >
+              Logout
+            </button>
+          </div>
+        )}
+        {!isLoggedIn && (
+          <div className="flex gap-4">
+            <button
+              onClick={() => router.push("/register")}
+              className="bg-blue-200 text-blue-600 border border-blue-600 px-4 py-2 rounded-md hover:bg-blue-300 transition duration-100"
+            >
+              Register
+            </button>
+            <button
+              onClick={() => router.push("/login")}
+              className="bg-blue-200 text-blue-600 border border-blue-600 px-4 py-2 rounded-md hover:bg-blue-300 transition duration-100"
+            >
+              Login
+            </button>
+          </div>
+        )}
       </div>
     </motion.header>
   );

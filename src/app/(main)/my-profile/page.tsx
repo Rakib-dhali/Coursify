@@ -7,10 +7,8 @@ import { authClient } from "@/lib/auth-client";
 
 export default function ProfileSection() {
   const router = useRouter()
-  const [showPassword, setShowPassword] = useState(false);
 
   const {data: session} = authClient.useSession();
-  const isLoggedIn = !!session?.user;
 
   return (
     <div className="max-w-3xl mx-auto px-5 py-10">

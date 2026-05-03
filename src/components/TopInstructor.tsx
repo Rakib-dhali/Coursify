@@ -4,15 +4,7 @@ import { useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import Image from "next/image";
-
-export interface instructor {
-  id: number;
-  name: string;
-  subject: string;
-  rating: number;
-  ratingCount: number;
-  image: string;
-}
+import { instructor } from "@/type";
 
 export default function TopInstructors() {
   const instructors: instructor[] = [
