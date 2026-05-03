@@ -68,7 +68,7 @@ const CourseDetailsPage = async ({
               width={35}
               height={35}
               className="rounded-full"
-              src="https://randomuser.me/api/portraits/men/75.jpg"
+              src={image}
               alt="k"
             />
             <div>

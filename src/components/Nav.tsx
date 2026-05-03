@@ -8,6 +8,7 @@ import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
 import toast from "react-hot-toast";
+import logo from "@/assets/logo.png";
 
 export default function Nav() {
   const pathname = usePathname();
@@ -54,9 +55,10 @@ export default function Nav() {
       <div className="max-w-369 mx-auto h-15 lg:h-20 flex items-center justify-between px-6  backdrop-blur-md">
         <div className="flex items-center">
           <Link href="/" className="flex items-center">
-            <Image src="/assets/logo.png" alt="logo" width={40} height={40} />
-            <span className="ml-2 hidden md:block font-bold text-2xl text-blue-400 font-mono">
-              SkillSphere
+            {/* <Image src="/assets/logo.png" alt="logo" width={40} height={40} /> */}
+            <Image src={logo} alt="logo" width={40} height={40} />
+            <span className="ml-2 hidden md:block font-bold text-2xl text-blue-950 ">
+              Coursi<span className="text-blue-500">fy</span>  
             </span>
           </Link>
         </div>

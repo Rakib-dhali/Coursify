@@ -5,7 +5,6 @@ import Image from "next/image";
 
 const CoursePage = async () => {
   const courses = await getCourses();
-  console.log(courses);
   return (
       <section className="px-6 md:px-12 py-12 w-full max-w-369 mx-auto bg-white">
       {/* Header */}

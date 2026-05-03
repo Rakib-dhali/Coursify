@@ -31,17 +31,20 @@ export default function LoginForm() {
     }
   };
   const googleSignIn = async () => {
-    const { error } = await authClient.signIn.social({
+    const { data,error } = await authClient.signIn.social({
       provider: "google",
       callbackURL: "/",
+      
     });
 
     if (error) {
       toast.error(error.message!);
       return;
     }
-
-    toast.success("login successful");
+    console.log(data);
+    // if(data){
+    //   toast.success("login successful");
+    // }
   };
 
   return (

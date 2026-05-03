@@ -7,7 +7,7 @@ export default function DetailsButton({ id }: { id: number }) {
 
   return (
     <button
-      onClick={() => router.push(`/courses/${id}`)}
+      onClick={() => router.push(`/courses/course-details/${id}`)}
       className="w-full bg-blue-200 py-2 rounded-lg hover:bg-blue-300"
     >
       View Details
