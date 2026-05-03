@@ -7,7 +7,7 @@ export default function MainLayout({
 }) {
   return <>
     <Nav />
-    <div className="pt-[60px]">
+    <div className="pt-15">
       {children}
     </div>
   </>;
