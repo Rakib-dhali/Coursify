@@ -16,18 +16,18 @@ const MarqueeSection = () => {
       <h1 className="text-3xl md:text-4xl text-center text-blue-950 pb-20 font-bold">
         Sponsored By
       </h1>
-      <div className="absolute left-0 top-0 h-full w-48 bg-linear-to-r from-white via-white to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 h-full w-48 bg-linear-to-l from-white via-white to-transparent z-10 pointer-events-none" />
+      <div className="absolute left-0 top-0 h-full md:w-36 w-20 lg:w-48 bg-linear-to-r from-white via-white to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 h-full md:w-36 w-20 lg:w-48 bg-linear-to-l from-white via-white to-transparent z-10 pointer-events-none" />
       <Marquee autoFill={true}>
-        <Image className="mx-15" src={apple} alt="" width={70} height={70} />
-        <Image className="mx-15" src={airbnb} alt="" width={70} height={70} />
-        <Image className="mx-15" src={figma} alt="" width={70} height={70} />
-        <Image className="mx-15" src={google} alt="" width={70} height={70} />
-        <Image className="mx-15" src={meta} alt="" width={70} height={70} />
-        <Image className="mx-15" src={netflix} alt="" width={70} height={70} />
-        <Image className="mx-15" src={notion} alt="" width={70} height={70} />
-        <Image className="mx-15" src={spotify} alt="" width={70} height={70} />
-        <Image className="mx-15" src={stripe} alt="" width={70} height={70} />
+        <Image className=" mx-10 md:mx-12 lg:mx-15" src={apple} alt="" width={70} height={70} />
+        <Image className=" mx-10 md:mx-12 lg:mx-15" src={airbnb} alt="" width={70} height={70} />
+        <Image className=" mx-10 md:mx-12 lg:mx-15" src={figma} alt="" width={70} height={70} />
+        <Image className=" mx-10 md:mx-12 lg:mx-15" src={google} alt="" width={70} height={70} />
+        <Image className=" mx-10 md:mx-12 lg:mx-15" src={meta} alt="" width={70} height={70} />
+        <Image className=" mx-10 md:mx-12 lg:mx-15" src={netflix} alt="" width={70} height={70} />
+        <Image className=" mx-10 md:mx-12 lg:mx-15" src={notion} alt="" width={70} height={70} />
+        <Image className=" mx-10 md:mx-12 lg:mx-15" src={spotify} alt="" width={70} height={70} />
+        <Image className=" mx-10 md:mx-12 lg:mx-15" src={stripe} alt="" width={70} height={70} />
       </Marquee>
     </div>
   );
